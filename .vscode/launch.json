@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-MsExpenseApplication<ms-expense>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.expenses.msexpense.MsExpenseApplication",
+      "projectName": "ms-expense",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

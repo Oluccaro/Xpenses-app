@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "0ddf2bce-54d4-4ade-802f-63eeef2f5349",
+		"name": "Expenses API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31349141"
+	},
+	"item": [
+		{
+			"name": "Travel",
+			"item": [
+				{
+					"name": "Create Travel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"startDate\": \"2024-05-01\",\n    \"endDate\": \"2024-05-30\",\n    \"description\": \"Travels of  2\",\n    \"status\": \"OPEN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/travel",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"travel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Travels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/travel",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"travel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Travel By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/travel/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"travel",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "Create Employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Juca Employee\",\n    \"empCode\": \"2222\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/employee",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Employee By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/employee/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"employee",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TravelEmployeeExpenses",
+			"item": [
+				{
+					"name": "TravelEmployee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/travel/1/employee/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"travel",
+								"1",
+								"employee",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/travel/1/employee/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"travel",
+								"1",
+								"employee",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add Expense",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Pratão de Arroz\",\n    \"value\": 56.20,\n    \"image\": \"Imagem.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/travel/1/employee/1/expense",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"travel",
+								"1",
+								"employee",
+								"1",
+								"expense"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:9000"
+		}
+	]
+}
