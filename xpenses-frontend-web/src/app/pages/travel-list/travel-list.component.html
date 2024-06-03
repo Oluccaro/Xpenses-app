@@ -1,0 +1,22 @@
+<div class="container mt-4">
+  <div class="list-group">
+    <div *ngFor="let item of items" class="list-group-item" (click)="toggleAccordion(item.id)">
+      <div class="d-flex justify-content-between align-items-center">
+        <span>{{ item.name }}</span>
+        <span [ngClass]="{'rotate': isActive(item.id)}" class="rotate-icon">&#x25BC;</span>
+      </div>
+      <div *ngIf="isActive(item.id)" class="accordion mt-2" (click)="preventCollapse($event)">
+        <div class="accordion-item">
+          <div class="accordion-body">
+            <ul class="list-group">
+              <li *ngFor="let subItem of item.subItems; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{ subItem }}</span>
+                <button class="btn btn-success" (click)="analyzeExpense(item.id, i + 1)">Analisar Gastos</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
