@@ -3,6 +3,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 1000;
+  background-color: #607D8BFF;
 }
 
 .navbar {
@@ -10,7 +11,8 @@ header {
 }
 
 .navbar-brand {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  font-weight: 900;
 }
 
 .navbar-toggler {
@@ -19,6 +21,7 @@ header {
 
 .navbar-nav .nav-item .nav-link {
   color: #fff;
+  font-weight: 500;
 }
 
 .navbar-nav .nav-item .nav-link:hover {

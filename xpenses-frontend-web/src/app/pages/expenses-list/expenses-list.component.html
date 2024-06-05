@@ -1,26 +1,36 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-md-4" *ngFor="let item of items">
-      <div class="card">
+      <div class="card position-relative">
         <div class="card-body">
           <h5 class="card-title">{{ item.title }}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
           <p class="card-text">{{ item.description }}</p>
           <div class="d-flex justify-content-between">
-            <a href="#" class="btn btn-primary" (click)="openInIframe($event, item.link)">Visualizar nota</a>
+            <a href="#" class="btn open-button" (click)="openInIframe($event, item.link)">Ver Detalhe</a>
             <div>
-              <button class="btn btn-success me-2">
+              <button class="btn approved-button me-2"  (click)="updateStatus(item, 'Aprovado')">
                 <i class="bi bi-check"></i>
               </button>
-              <button class="btn btn-danger">
+              <button class="btn rejected-button" (click)="updateStatus(item, 'Rejeitado')">
                 <i class="bi bi-x"></i>
               </button>
             </div>
           </div>
         </div>
+        <span class="status-label" [ngClass]="{
+          'in-analysis': item.status === 'Em Análise',
+          'approved': item.status === 'Aprovado',
+          'rejected': item.status === 'Rejeitado'
+        }">{{ item.status | titlecase }}</span>
       </div>
     </div>
-  </div>
+  </div> 
+  <div class="d-flex justify-content-end mt-4">
+    <button class="btn btn-danger me-2" (click)="rejectAll()">Rejeitar Todos</button>
+    <button class="btn btn-success me-2" (click)="approveAll()">Aprovar Todos</button>
+    <button class="btn btn-primary" (click)="finishAnalysis()">Finalizar Análise</button>
+  </div> 
 </div>
 <app-modal [url]="iframeUrl" *ngIf="showModal" (closeModalEvent)="closeModal()"></app-modal>
 

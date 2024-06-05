@@ -7,7 +7,7 @@ import { ExpensesListComponent } from './pages/expenses-list/expenses-list.compo
 const companyRoutes: Routes = [
   { path: 'travel', component: TravelListComponent },
   { path: '', redirectTo: 'travel', pathMatch: 'full' },
-  { path: 'analysis/:itemId/:subItemId', component: ExpensesListComponent }
+  { path: 'travel/expenses/:itemId/employee/:subItemId', component: ExpensesListComponent }
 ];
 
 const routes: Routes = [

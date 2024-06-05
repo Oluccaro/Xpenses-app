@@ -9,3 +9,47 @@
 .accordion-body {
   padding: 0;
 }
+
+.analyze-button{
+  background-color: #66a059;  
+  color: white;
+  margin-left: 10px;
+}
+
+.list-group-item {
+  cursor: pointer;
+  padding: 20px; /* Increase padding to make items taller */
+}
+
+.dates {
+  font-size: 0.9em;
+}
+
+.accordion-content {
+  padding-top: 10px;
+}
+
+.btn-success {
+  margin-left: 10px;
+}
+
+.list-group-item {
+  cursor: pointer;
+  padding: 20px; /* Increase padding to make items taller */
+}
+
+.status-label {
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: white;
+}
+
+.status-para-analise {
+  background-color: gray;
+}
+
+.status-analisado {
+  background-color: green;
+  color: white;
+}

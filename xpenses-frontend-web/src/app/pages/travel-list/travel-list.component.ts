@@ -7,21 +7,36 @@ import { Router } from '@angular/router';
   styleUrl: './travel-list.component.css'
 })
 export class TravelListComponent {
-  items = [
-    {
+  travels = [
+     {
       id: 1,
-      name: 'Category 1',
-      subItems: ['Subitem 1.1', 'Subitem 1.2', 'Subitem 1.3']
+      name: 'Viagens de Maio',
+      startDate: '2024-05-01',
+      endDate: '2024-05-31',
+      employees: [
+        { id: 101, name: 'João', status: 'para análise' },
+        { id: 102, name: 'Maria', status: 'para análise' },
+      ]
     },
     {
       id: 2,
-      name: 'Category 2',
-      subItems: ['Subitem 2.1', 'Subitem 2.2', 'Subitem 2.3']
+      name: 'Feira de Profissões',
+      startDate: '2024-08-01',
+      endDate: '2024-08-31',
+      employees: [
+        { id: 101, name: 'Pedro', status: 'para análise' },
+        { id: 102, name: 'Antônia', status: 'para análise' },
+      ]
     },
     {
       id: 3,
-      name: 'Category 3',
-      subItems: ['Subitem 3.1', 'Subitem 3.2', 'Subitem 3.3']
+      name: 'Feira de Profissões',
+      startDate: '2024-08-01',
+      endDate: '2024-08-31',
+      employees: [
+        { id: 101, name: 'Pedro', status: 'para análise' },
+        { id: 102, name: 'Antônia', status: 'para análise' },
+      ]
     }
   ];
 
@@ -46,6 +61,6 @@ export class TravelListComponent {
   constructor(private router: Router) {}
   
   analyzeExpense(itemId: number, subItemId: number) {
-    this.router.navigate(['/analysis', itemId, subItemId]);
+    this.router.navigate(['/travel/expenses', itemId, 'employee',subItemId]);
   }
 }

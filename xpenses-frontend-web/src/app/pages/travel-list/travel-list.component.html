@@ -1,17 +1,29 @@
 <div class="container mt-4">
   <div class="list-group">
-    <div *ngFor="let item of items" class="list-group-item" (click)="toggleAccordion(item.id)">
+    <div *ngFor="let travel of travels" class="list-group-item" (click)="toggleAccordion(travel.id)">
       <div class="d-flex justify-content-between align-items-center">
-        <span>{{ item.name }}</span>
-        <span [ngClass]="{'rotate': isActive(item.id)}" class="rotate-icon">&#x25BC;</span>
+        <div>
+          {{ travel.name }}
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="text-muted dates me-2">
+            {{ travel.startDate }} - {{ travel.endDate }}
+          </div>
+          <span [ngClass]="{'rotate': isActive(travel.id)}" class="rotate-icon">&#x25BC;</span>
+        </div>
       </div>
-      <div *ngIf="isActive(item.id)" class="accordion mt-2" (click)="preventCollapse($event)">
+      <div *ngIf="isActive(travel.id)" class="accordion mt-2" (click)="preventCollapse($event)">
         <div class="accordion-item">
           <div class="accordion-body">
             <ul class="list-group">
-              <li *ngFor="let subItem of item.subItems; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
-                <span>{{ subItem }}</span>
-                <button class="btn btn-success" (click)="analyzeExpense(item.id, i + 1)">Analisar Gastos</button>
+              <li *ngFor="let employee of travel.employees; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+                <span>Funcionário: {{ employee.name }}</span>
+                <div class="d-flex align-items-center">
+                  <span [ngClass]="{'status-analisado': employee.status === 'analisado', 'status-para-analise': employee.status === 'para análise'}" class="status-label">
+                    {{ employee.status }}
+                  </span>
+                  <button class="btn analyze-button ms-2" (click)="analyzeExpense(travel.id, employee.id)">Analisar Gastos</button>
+                </div>
               </li>
             </ul>
           </div>
