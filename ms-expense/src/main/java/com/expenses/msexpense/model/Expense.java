@@ -32,6 +32,9 @@ public class Expense {
   @Column(name = "image")
   private String image;
 
+  @Column(name = "url")
+  private String url;
+
   @ManyToOne
   @JoinColumn(name = "travel_id")
   @JoinColumn(name = "employee_id")
